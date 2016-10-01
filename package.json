@@ -1,10 +1,9 @@
 {
-  "name": "react-markdown-editor",
-  "version": "0.4.0",
+  "name": "react-markdown-light",
+  "version": "0.1.0",
   "description": "A markdown editor with preview, implemented with React.js and Reflux",
   "main": "index.js",
   "scripts": {
-    "prepublish": "./scripts/prepublish.sh",
     "test": "jest --coverage"
   },
   "keywords": [
@@ -15,12 +14,8 @@
     "preview",
     "text"
   ],
-  "author": "Jeremy Dagorn <jeremy.dagorn@gmail.com>",
+  "author": "Extended from Jeremy Dagorn <jeremy.dagorn@gmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jrm2k6/react-markdown-editor/issues",
-    "email": "jeremy.dagorn@gmail.com"
-  },
   "jest": {
     "scriptPreprocessor": "./scripts/preprocessor.js",
     "unmockedModulePathPatterns": [
@@ -36,7 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jrm2k6/react-markdown-editor.git"
+    "url": "https://github.com/bribeiro/react-markdown-editor.git"
   },
   "dependencies": {
     "markdown": "^0.5.0",
