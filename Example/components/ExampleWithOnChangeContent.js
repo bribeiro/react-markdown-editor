@@ -1,6 +1,5 @@
 var React = require('react');
-var ReactMarkdownEditor = require('react-markdown-editor');
-var MarkdownEditor = ReactMarkdownEditor.MarkdownEditor;
+var MarkdownEditor = require('react-markdown-editor').MarkdownEditor;
 
 var ExampleWithOnChangeContent = React.createClass({
   getInitialState: function() {

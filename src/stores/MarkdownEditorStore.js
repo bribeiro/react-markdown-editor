@@ -6,6 +6,7 @@ var MarkdownEditorStore = Reflux.createStore({
   init: function() {
     this.currentSelection = null;
     this.listenTo(MarkdownEditorActions.makeBold, this.handleMakeBold);
+    this.listenTo(MarkdownEditorActions.makeStrikethrough, this.handleMakeStrikethrough);
     this.listenTo(MarkdownEditorActions.makeItalic, this.handleMakeItalic);
     this.listenTo(MarkdownEditorActions.makeHeader, this.handleMakeHeader);
     this.listenTo(MarkdownEditorActions.makeSubHeader, this.handleMakeSubHeader);
@@ -27,6 +28,10 @@ var MarkdownEditorStore = Reflux.createStore({
 
   handleMakeLink: function() {
     this.trigger({action: 'link', currentSelection: this.currentSelection});
+  },
+
+  handleMakeStrikethrough: function() {
+    this.trigger({action: 'strikethrough', currentSelection: this.currentSelection});
   },
 
   handleMakeUnderline: function() {

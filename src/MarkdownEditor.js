@@ -17,11 +17,11 @@ var MarkdownUtils = require('./utils/MarkdownUtils');
 
 var NullMarkdownToken = MarkdownTokenFactory.NullMarkdownToken;
 var RegularMarkdownToken = MarkdownTokenFactory.RegularMarkdownToken;
-var HeaderMarkdownToken = MarkdownTokenFactory.HeaderMarkdownToken;
-var SubHeaderMarkdownToken = MarkdownTokenFactory.SubHeaderMarkdownToken;
+// var HeaderMarkdownToken = MarkdownTokenFactory.HeaderMarkdownToken;
+// var SubHeaderMarkdownToken = MarkdownTokenFactory.SubHeaderMarkdownToken;
 var UrlMarkdownToken = MarkdownTokenFactory.UrlMarkdownToken;
 var ListMarkdownToken = MarkdownTokenFactory.ListMarkdownToken;
-var ImageMarkdownToken = MarkdownTokenFactory.ImageMarkdownToken;
+// var ImageMarkdownToken = MarkdownTokenFactory.ImageMarkdownToken;
 
 var MarkdownEditorMenu = React.createClass({
   mixins: [Reflux.ListenerMixin, ButtonManagerMixin],
@@ -55,20 +55,18 @@ var MarkdownEditorMenu = React.createClass({
     var boldButton = this.getBoldButton(_disabled, this.handleBoldButtonClick);
     var italicButton = this.getItalicButton(_disabled, this.handleItalicButtonClick);
     var makeListButton = this.getMakeListButton(_disabled, this.handleListButtonClick);
-    var imageButton = this.getImageButton(_disabled, this.handleImageButtonClick);
-    var linkButton = this.getLinkButton(_disabled, this.handleLinkButtonClick);
-    var headerButton = this.getButtonWithoutIcon(_disabled, this.handleHeaderButtonClick, 'md-editor-menu-header', 'Header');
-    var subHeaderButton = this.getButtonWithoutIcon(_disabled, this.handleSubHeaderButtonClick, 'md-editor-menu-subheader', 'Subheader');
+    var strikeButton = this.getImageButton(_disabled, this.handleStrikethroughButtonClick);
+    // var imageButton = this.getImageButton(_disabled, this.handleImageButtonClick);
+    // var linkButton = this.getLinkButton(_disabled, this.handleLinkButtonClick);
+    // var headerButton = this.getButtonWithoutIcon(_disabled, this.handleHeaderButtonClick, 'md-editor-menu-header', 'Header');
+    // var subHeaderButton = this.getButtonWithoutIcon(_disabled, this.handleSubHeaderButtonClick, 'md-editor-menu-subheader', 'Subheader');
 
     return (
       <div style={styleMarkdownMenu} className='md-editor-menu'>
         {boldButton}
         {italicButton}
-        {headerButton}
-        {subHeaderButton}
         {makeListButton}
-        {imageButton}
-        {linkButton}
+        {strikeButton}
       </div>
     );
   },
@@ -85,9 +83,7 @@ var MarkdownEditorMenu = React.createClass({
     MarkdownEditorActions.makeBold();
   },
 
-  handleImageButtonClick: function() {
-    MarkdownEditorActions.makeImage();
-  },
+
 
   handleItalicButtonClick: function() {
     MarkdownEditorActions.makeItalic();
@@ -97,16 +93,8 @@ var MarkdownEditorMenu = React.createClass({
     MarkdownEditorActions.makeUnderline();
   },
 
-  handleHeaderButtonClick: function() {
-    MarkdownEditorActions.makeHeader();
-  },
-
-  handleSubHeaderButtonClick: function() {
-    MarkdownEditorActions.makeSubHeader();
-  },
-
-  handleLinkButtonClick: function() {
-    MarkdownEditorActions.makeLink();
+  handleStrikethroughButtonClick: function() {
+    MarkdownEditorActions.makeStrikethrough();
   },
 
   handleListButtonClick: function() {
@@ -370,20 +358,23 @@ var MarkdownEditor = React.createClass({
       case 'italic':
         return new RegularMarkdownToken('_', true);
 
-      case 'header':
-        return new HeaderMarkdownToken();
+      case 'strikethrough':
+        return new RegularMarkdownToken('~~', true);
 
-      case 'subheader':
-        return new SubHeaderMarkdownToken();
+      // case 'header':
+      //   return new HeaderMarkdownToken();
 
-      case 'link':
-        return new UrlMarkdownToken();
+      // case 'subheader':
+      //   return new SubHeaderMarkdownToken();
+      
+      // case 'link':
+        // return new UrlMarkdownToken();
 
       case 'list':
         return new ListMarkdownToken();
 
-      case 'image':
-        return new ImageMarkdownToken();
+      // case 'image':
+        // return new ImageMarkdownToken();
 
       default:
         return new NullMarkdownToken();

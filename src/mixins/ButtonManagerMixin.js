@@ -37,6 +37,15 @@ var ButtonManagerMixin = {
     }
   },
 
+  getStrikethroughButton: function(isDisabled, onClickHandler) {
+    var _style = this.getStyleMarkdownBtn();
+    if (this.isFontAwesome()) {
+      return this.getButtonFontAwesomeIcon(isDisabled, onClickHandler, _style, 'fa-strikethrough', 'strikethrough-btn');
+    } else {
+      return this.getButtonMaterializeIcon(isDisabled, onClickHandler, _style, 'format_strikethrough', 'strikethrough-btn');
+    }
+  },
+
   getButtonMaterializeIcon: function(isDisabled, onClickHandler, styleBtn, iconName, containerClassName) {
     return (
       <div role='button' className={containerClassName} style={styleBtn} disabled={isDisabled} onClick={onClickHandler}>

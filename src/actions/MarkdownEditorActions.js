@@ -8,6 +8,7 @@ var MarkdownEditorActions = Reflux.createActions([
 	'makeImage',
 	'makeItalic',
 	'makeLink',
+	'makeStrikethrough',
 	'makeList',
 	'makeHeader',
 	'makeSubHeader',
