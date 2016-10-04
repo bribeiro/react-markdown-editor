@@ -17,11 +17,8 @@ var MarkdownUtils = require('./utils/MarkdownUtils');
 
 var NullMarkdownToken = MarkdownTokenFactory.NullMarkdownToken;
 var RegularMarkdownToken = MarkdownTokenFactory.RegularMarkdownToken;
-// var HeaderMarkdownToken = MarkdownTokenFactory.HeaderMarkdownToken;
-// var SubHeaderMarkdownToken = MarkdownTokenFactory.SubHeaderMarkdownToken;
 var UrlMarkdownToken = MarkdownTokenFactory.UrlMarkdownToken;
 var ListMarkdownToken = MarkdownTokenFactory.ListMarkdownToken;
-// var ImageMarkdownToken = MarkdownTokenFactory.ImageMarkdownToken;
 
 var MarkdownEditorMenu = React.createClass({
   mixins: [Reflux.ListenerMixin, ButtonManagerMixin],
@@ -56,11 +53,7 @@ var MarkdownEditorMenu = React.createClass({
     var italicButton = this.getItalicButton(_disabled, this.handleItalicButtonClick);
     var makeListButton = this.getMakeListButton(_disabled, this.handleListButtonClick);
     var strikeButton = this.getImageButton(_disabled, this.handleStrikethroughButtonClick);
-    // var imageButton = this.getImageButton(_disabled, this.handleImageButtonClick);
-    // var linkButton = this.getLinkButton(_disabled, this.handleLinkButtonClick);
-    // var headerButton = this.getButtonWithoutIcon(_disabled, this.handleHeaderButtonClick, 'md-editor-menu-header', 'Header');
-    // var subHeaderButton = this.getButtonWithoutIcon(_disabled, this.handleSubHeaderButtonClick, 'md-editor-menu-subheader', 'Subheader');
-
+  
     return (
       <div style={styleMarkdownMenu} className='md-editor-menu'>
         {boldButton}
@@ -82,8 +75,6 @@ var MarkdownEditorMenu = React.createClass({
   handleBoldButtonClick: function() {
     MarkdownEditorActions.makeBold();
   },
-
-
 
   handleItalicButtonClick: function() {
     MarkdownEditorActions.makeItalic();
@@ -192,7 +183,7 @@ var MarkdownEditorContent = React.createClass({
 
   render: function() {
     var styleMarkdownTextArea = {
-      'height': '90%',
+      'height': '230px',
       'width': '100%',
       'padding': '30px 10px',
       'border': 'none'
@@ -366,7 +357,7 @@ var MarkdownEditor = React.createClass({
 
       // case 'subheader':
       //   return new SubHeaderMarkdownToken();
-      
+
       // case 'link':
         // return new UrlMarkdownToken();
 
