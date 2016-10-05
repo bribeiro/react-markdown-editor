@@ -1,4 +1,4 @@
-var MarkdownEditor = require('react-markdown-editor').MarkdownEditor;
+var MarkdownEditor = require('react-markdown-light').MarkdownEditor;
 var ExampleWithOnChangeContent = require('./components/ExampleWithOnChangeContent');
 var ReactDOM = require('react-dom');
 var React = require('react');
