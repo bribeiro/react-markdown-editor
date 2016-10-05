@@ -11,7 +11,7 @@
   "dependencies": {
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
-    "react-markdown-editor": "0.4.0",
+    "react-markdown-light": "0.1.3",
     "webpack": "^1.12.9",
     "remarkable": "^1.6.2"
   },
